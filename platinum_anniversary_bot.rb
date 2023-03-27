@@ -33,7 +33,7 @@ platinum_dates = my_platinum_dates(trophy_titles)
 anniversaries = my_anniversaries(platinum_dates)
 return if anniversaries.blank?
 
-# If we have at least of anniversary to celebrate, we want to say it on Discord!
+# If we have at least one anniversary to celebrate, we want to say it on Discord!
 discord_bot = Discordrb::Bot.new(token: ENV['DISCORD_TOKEN'])
 
 anniversaries.each do |title, date|

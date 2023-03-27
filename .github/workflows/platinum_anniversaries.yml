@@ -1,0 +1,26 @@
+# This workflow will run daily at 08:00 UTC to check for platinum anniversaries to celebrate
+
+name: Platinum anniversaries
+
+on:
+  workflow_dispatch: # Allow to trigger actions manually, for testing purpose
+  schedule:
+    - cron: '0 8 * * *' # Daily, at 10 AM in summer & 9 AM in winter, in Europe/Paris timezone
+
+env:
+  NPSSO: ${{ secrets.NPSSO }}
+  DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+  DISCORD_CHANNEL_ID: ${{ secrets.DISCORD_CHANNEL_ID }}
+  TZ: ${{ vars.TZ }}
+
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - name: Check for platinum anniversaries to celebrate
+      run: ruby platinum_anniversary_bot.rb

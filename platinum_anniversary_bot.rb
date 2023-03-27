@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'rubygems'
+require 'bundler/setup'
+
 require 'active_support/time'
 require 'discordrb'
 require_relative 'playstation_api_client'

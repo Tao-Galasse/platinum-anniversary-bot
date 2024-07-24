@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'rubygems'
-require 'bundler/setup'
-
+require 'active_support'
 require 'active_support/time'
 require 'discordrb'
 require_relative 'playstation_api_client'
@@ -31,7 +29,7 @@ end
 trophy_titles = @playstation_api_client.my_trophy_titles['trophyTitles']
 platinum_dates = my_platinum_dates(trophy_titles)
 anniversaries = my_anniversaries(platinum_dates)
-return if anniversaries.blank?
+return if anniversaries.empty?
 
 # If we have at least one anniversary to celebrate, we want to say it on Discord!
 discord_bot = Discordrb::Bot.new(token: ENV['DISCORD_TOKEN'])
@@ -40,6 +38,6 @@ anniversaries.each do |title, date|
   age = Date.today.year - date.year
   years = age == 1 ? 'an' : 'ans'
 
-  message = "Aujourd'hui, nous célèbrons l'obtention du platine de #{title}, il y a #{age} #{years} !"
+  message = "Aujourd'hui, nous célébrons l'obtention du platine de #{title}, il y a #{age} #{years} !"
   discord_bot.send_message(ENV['DISCORD_CHANNEL_ID'], message)
 end

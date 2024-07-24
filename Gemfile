@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.0'
+ruby '3.3.4'
 
-gem 'activesupport', '~> 7.0', '>= 7.0.4.3'
-gem 'discordrb', '~> 3.4'
+gem 'activesupport', '~> 7.1', '>= 7.1.3.4'
+gem 'discordrb', '~> 3.5'

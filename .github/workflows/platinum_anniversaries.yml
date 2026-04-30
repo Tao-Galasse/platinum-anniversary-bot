@@ -1,11 +1,12 @@
-# This workflow will run daily at 08:00 UTC to check for platinum anniversaries to celebrate
+# This workflow will run daily at 09 AM to check for platinum anniversaries to celebrate
 
 name: Platinum anniversaries
 
 on:
   workflow_dispatch: # Allow to trigger actions manually, for testing purpose
   schedule:
-    - cron: '0 8 * * *' # Daily, at 10 AM in summer & 9 AM in winter, in Europe/Paris timezone
+    - cron: '0 9 * * *' # Runs everyday at 9AM
+      timezone: 'Europe/Paris'
 
 env:
   NPSSO: ${{ secrets.NPSSO }}
@@ -17,7 +18,7 @@ jobs:
   cron:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:

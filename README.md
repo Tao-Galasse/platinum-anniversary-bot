@@ -31,7 +31,7 @@ You can also update the message sent to your Discord channel in the `platinum_an
 
 ### Locally
 
-- Install Ruby 3.4.3.
+- Install Ruby 4.0 (see `.ruby-version`).
 - Add a `.env` file following the format given in `.env.example`.
 - Install dependencies with `bundle install` thanks to [bundler](https://bundler.io/). 
 - Run `ruby platinum_anniversary_bot.rb`!

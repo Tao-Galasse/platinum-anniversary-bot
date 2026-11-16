@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.4.3'
+ruby file: '.ruby-version'
 
-gem 'activesupport', '~> 8.0', '>= 8.0.2'
-gem 'discordrb', '~> 3.5'
+gem 'activesupport', '~> 8.1'
+gem 'discordrb', '~> 3.8'
